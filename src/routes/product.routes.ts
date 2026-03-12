@@ -1,0 +1,21 @@
+import { Router } from "express";
+
+import {
+  createProductHandler,
+  deleteProductHandler,
+  getProductById,
+  listProducts,
+  replaceProductHandler,
+  updateProductHandler
+} from "../controllers/product.controller.js";
+
+const productRouter = Router();
+
+productRouter.get("/", listProducts);
+productRouter.get("/:id", getProductById);
+productRouter.post("/", createProductHandler);
+productRouter.put("/:id", replaceProductHandler);
+productRouter.patch("/:id", updateProductHandler);
+productRouter.delete("/:id", deleteProductHandler);
+
+export default productRouter;
